@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Joberfied</string>
+
+    <string name="app_quote">\" You have the freedom to be </string>
+    <string name="app_quote2">yourself, your true self, here and now,</string>
+    <string name="app_quote3">and nothing can stand in your way.\"</string>
+    <string name="app_quote4">- Richard Bach</string>
+</resources>
