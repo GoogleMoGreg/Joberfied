@@ -5,4 +5,13 @@
     <string name="app_quote2">yourself, your true self, here and now,</string>
     <string name="app_quote3">and nothing can stand in your way.\"</string>
     <string name="app_quote4">- Richard Bach</string>
+
+
+    <!--Employer Strings -->
+    <string name="app_Welcome">WELCOME !</string>
+    <string name="app_pinEmployer">PIN</string>
+    <string name="app_passEmployer">PASSWORD</string>
+    <string name="app_SubMessage">Professionalism? Commitment?</string>
+    <string name="app_SubMessage_2">Let Jonathan do the Job!</string>
+
 </resources>
