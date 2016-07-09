@@ -115,7 +115,7 @@
                 android:paddingBottom="15dp"
                 >
             <Button
-                android:id="@+id/angry_btn"
+                android:id="@+id/loginEmployer_btn"
                 android:text="LOGIN"
                 android:textColor="#404040"
                 android:textSize="30sp"

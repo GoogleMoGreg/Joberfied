@@ -14,4 +14,15 @@
     <string name="app_SubMessage">Professionalism? Commitment?</string>
     <string name="app_SubMessage_2">Let Jonathan do the Job!</string>
 
+    <!---JobSeeker Strings -->
+    <string name="app_SubMessage_Jobseeker">Get your resume noticed within minutes</string>
+    <string name="app_pinJobseeker">APP PIN</string>
+    <string name="app_passJobseeker">PASSWORD</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Jobseeker Sample Title-->
+    <string name="app_JobSeeker_Title">\" IdealProgrammer \"</string>
+
+
 </resources>

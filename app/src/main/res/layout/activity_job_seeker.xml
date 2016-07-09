@@ -3,9 +3,131 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#1abc9c"
     android:gravity="center"
     tools:context="com.chrs.iit.android.greg.joberfied.JobSeeker">
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+        <RelativeLayout
+            android:paddingTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+           >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_jonathan_jr"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+               >
+            <TextView
+                android:layout_marginTop="20dp"
+                android:id="@+id/tv_Welcome_Jobseeker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_Welcome"
+                android:textColor="#ffffff"
+                android:textSize="30sp"
+                android:fontFamily="sans-serif"
+
+                />
+            <TextView
+                android:id="@+id/tv_sub_message_Jobseeker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_SubMessage_Jobseeker"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif"
+                android:textSize="10sp"
+                />
+            </LinearLayout>
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/iv_jonathan_jr"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/jonathan_jr"
+                android:layout_marginLeft="10dp"
+                />
+
+
+    <LinearLayout
+                android:id="@+id/linearLayout_jobseeker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/briefcase_jobseeker"
+                android:layout_below="@id/iv_jonathan_jr"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_PinEmployer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="20dp"
+                    >
+                    <EditText
+                        android:id="@+id/et_PinEmployer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/app_pinJobseeker"
+                        android:gravity="center_horizontal"
+                        android:textSize="30sp"
+                        android:background="@android:color/transparent"
+                        />
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_PassEmployer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="10dp"
+                    >
+                    <EditText
+                        android:id="@+id/et_PassEmployer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:hint="@string/app_passJobseeker"
+                        android:textSize="30sp"
+                        android:gravity="center_horizontal"
+                        android:background="@android:color/transparent"
+                        />
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayout_jobseeker"
+                android:gravity="center"
+                android:paddingBottom="15dp"
+                >
+                <Button
+                    android:id="@+id/loginjobSeeker_btn"
+                    android:text="LOGIN"
+                    android:textColor="#404040"
+                    android:textSize="30sp"
+                    android:layout_width="130dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/buttonshape"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
