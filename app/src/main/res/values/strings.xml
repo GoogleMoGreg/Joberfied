@@ -24,5 +24,8 @@
     <!-- Jobseeker Sample Title-->
     <string name="app_JobSeeker_Title">\" IdealProgrammer \"</string>
 
-
+    <!--Main Description Messages-->
+    <string name="app_main_descrip_message2">Head Hunting. \nReinvented.</string>
+    <string name="app_main_descrip_proto_message">For every set back is a setup for a come back.
+                                                  For every rejection is fuel to your motivation.</string>
 </resources>

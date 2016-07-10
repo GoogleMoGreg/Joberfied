@@ -11,12 +11,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Main extends Fragment implements View.OnClickListener {
 
     ImageView iv_jobseeker,iv_employer;
+
 
     private static final String ARG_LAYOUT_RESID="layoutResId";
 
@@ -40,9 +42,9 @@ public class Main extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments()!=null&& getArguments().containsKey(ARG_LAYOUT_RESID))
             layoutResId=getArguments().getInt(ARG_LAYOUT_RESID);
+
     }
 
 
@@ -77,6 +79,8 @@ public class Main extends Fragment implements View.OnClickListener {
                 break;
         }
     }
+
+
 
 
 

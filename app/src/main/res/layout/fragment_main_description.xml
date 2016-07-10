@@ -2,17 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context="com.chrs.iit.android.greg.joberfied.Main_Description">
+    android:background="#fff7f7"
+    tools:context="com.chrs.iit.android.greg.joberfied.Main_Description"
+    tools:ignore="MissingPrefix">
 
     <!-- TODO: Update blank fragment layout -->
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar_main_description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#c7bfbf"
+        android:background="#faefef"
         >
         <TextView
+            android:id="@+id/tv_font_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
@@ -20,9 +27,250 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
+            android:textColor="#000000"
             />
-
     </android.support.design.widget.AppBarLayout>
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbar_main_description"
+        >
+        <RelativeLayout
+            android:id="@+id/relativeLayout_main_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+          <TextView
+              android:id="@+id/tv_main_desc_message1"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Who we are?"
+              android:textSize="40sp"
+              android:gravity="center"
+              android:layout_marginTop="20dp"
+              android:textColor="#000000"
+              />
+            <TextView
+                android:id="@+id/tv_main_desc_message2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_main_descrip_message2"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_main_desc_message1"
+                />
+            <ImageView
+                android:id="@+id/iv_icon_twitter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/tweet"
+                android:layout_below="@+id/tv_main_desc_message2"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Follow Me"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/iv_icon_twitter"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_main_descrip_proto_message"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_main_desc_message3"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+            <ImageView
+                android:id="@+id/iv_icon_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/picture"
+                android:layout_below="@+id/tv_main_desc_message4"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gallery"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/iv_icon_gallery"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_main_descrip_proto_message"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_main_desc_message5"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+            />
+            <ImageView
+                android:id="@+id/iv_icon_retina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/retina"
+                android:layout_below="@+id/tv_main_desc_message6"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Retina"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/iv_icon_retina"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_main_descrip_proto_message"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_main_desc_message7"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+            <ImageView
+                android:id="@+id/iv_icon_responsive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/laptop"
+                android:layout_below="@+id/tv_main_desc_message8"
+                android:layout_marginTop="20dp"
+                android:clickable="true"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Responsive"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/iv_icon_responsive"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_main_descrip_proto_message"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_main_desc_message9"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+            <ImageView
+                android:id="@+id/iv_icon_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/map_icon"
+                android:layout_below="@+id/tv_main_desc_message10"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Google"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/iv_icon_map"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_main_descrip_proto_message"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_main_desc_message11"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+            <ImageView
+                android:id="@+id/iv_icon_browser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/browser"
+                android:layout_below="@+id/tv_main_desc_message12"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bootstrap"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/iv_icon_browser"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#000000"
+                />
+            <TextView
+                android:id="@+id/tv_main_desc_message14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_main_descrip_proto_message"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_main_desc_message13"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                />
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>
 
 </FrameLayout>

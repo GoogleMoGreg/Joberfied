@@ -1,6 +1,6 @@
 package com.chrs.iit.android.greg.joberfied;
 
-import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class Employer extends AppCompatActivity implements View.OnClickListener{
 
-    Button loginEmployer_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
