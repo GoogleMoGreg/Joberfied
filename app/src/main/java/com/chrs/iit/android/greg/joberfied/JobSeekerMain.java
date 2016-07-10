@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.SearchView;
 
 
-public class EmployerMain extends AppCompatActivity  {
+public class JobSeekerMain extends AppCompatActivity  {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -58,10 +58,10 @@ public class EmployerMain extends AppCompatActivity  {
 
     private void setupTabTitle(){
         viewPageAdapterEmployer=new ViewPageAdapterEmployer(getSupportFragmentManager());
-        viewPageAdapterEmployer.addFragments(new EmployerProfile());
-        viewPageAdapterEmployer.addFragments(new EmployerAttache());
-        viewPageAdapterEmployer.addFragments(new EmployerMessage());
-        viewPageAdapterEmployer.addFragments(new EmployerBookmark());
+        viewPageAdapterEmployer.addFragments(new JobSeekerProfile());
+        viewPageAdapterEmployer.addFragments(new JobSeekerAttache());
+        viewPageAdapterEmployer.addFragments(new JobSeekerMessage());
+        viewPageAdapterEmployer.addFragments(new JobSeekerBookmark());
         viewPager.setAdapter(viewPageAdapterEmployer);
     }
 

@@ -14,8 +14,7 @@ public class Employer extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employer);
 
-        loginEmployer_btn=(Button)findViewById(R.id.loginEmployer_btn);
-        loginEmployer_btn.setOnClickListener(this);
+
     }
 
     @Override
@@ -24,13 +23,12 @@ public class Employer extends AppCompatActivity implements View.OnClickListener{
         switch (view.getId()){
 
             case R.id.loginEmployer_btn:
-                showEmployerMain();
+
                 break;
         }
     }
     public void showEmployerMain(){
 
-        Intent showEmployerMainClass=new Intent(this,EmployerMain.class);
-        startActivity(showEmployerMainClass);
+
     }
 }

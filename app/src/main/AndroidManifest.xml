@@ -23,7 +23,7 @@
         <activity
             android:name=".JobSeeker"
             android:theme="@style/AppTheme_NoActionBar"></activity>
-        <activity android:name=".EmployerMain"
+        <activity android:name=".JobSeekerMain"
                   android:theme="@style/AppTheme_NoActionBarTab"></activity>
     </application>
 

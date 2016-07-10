@@ -1,42 +1,39 @@
 package com.chrs.iit.android.greg.joberfied;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import com.github.paolorotolo.appintro.AppIntro2;
 
-    ImageView iv_jobseeker,iv_employer;
+public class MainActivity extends AppIntro2{
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        iv_jobseeker=(ImageView)findViewById(R.id.iv_jobSeeker);
-        iv_jobseeker.setOnClickListener(this);
-        iv_employer=(ImageView)findViewById(R.id.iv_employer);
-        iv_employer.setOnClickListener(this);
+
+        addSlide(Main.newInstance(R.layout.fragment_main));
+        addSlide(Main_Description.newInstance(R.layout.fragment_main_description));
+
+        setProgressButtonEnabled(false);
 
     }
 
     @Override
-    public void onClick(View view) {
-
-        switch (view.getId()){
-
-            case R.id.iv_jobSeeker:
-                Intent showJobseeker =new Intent(this,JobSeeker.class);
-                startActivity(showJobseeker);
-                break;
-            case R.id.iv_employer:
-                Intent showEmployer=new Intent(this,Employer.class);
-                startActivity(showEmployer);
-                break;
-        }
+    public void onSkipPressed(Fragment currentFragment) {
+        super.onSkipPressed(currentFragment);
     }
 
+    @Override
+    public void onDonePressed(Fragment currentFragment) {
+        super.onDonePressed(currentFragment);
+    }
+
+    @Override
+    public void onSlideChanged(@Nullable Fragment oldFragment, @Nullable Fragment newFragment) {
+        super.onSlideChanged(oldFragment, newFragment);
+    }
 }
