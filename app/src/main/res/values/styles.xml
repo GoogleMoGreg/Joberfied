@@ -4,17 +4,21 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">#34495e</item>
+        <item name="colorPrimaryDark">#34495e</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
 
     <style name="AppTheme_NoActionBarTab" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#34495e</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">#333333</item>
+        <item name="colorPrimaryDark">#34495e</item>
         <item name="colorAccent">#71e1af</item>
+
+        <!--Material Drawer-->
+        <item name="material_drawer_primary_text">@color/material_drawer_primary_dark</item>
+
     </style>
 
     <style name="AppTheme_NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">

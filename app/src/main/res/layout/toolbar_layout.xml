@@ -11,16 +11,6 @@
 
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="25sp"
-        android:paddingTop="10dp"
-        android:textColor="#d2c1c1"
-        android:layout_marginRight="30dp"
-        />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +22,8 @@
                 android:text="Search jobs here"
                 android:paddingTop="10dp"
                 android:textSize="15sp"
-                android:paddingLeft="10dp"/>
+                android:paddingLeft="10dp"
+                android:textColor="#000000"/>
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="wrap_content"
