@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#1abc9c"
+    android:background="#f02921"
     android:gravity="center"
     tools:context="com.chrs.iit.android.greg.joberfied.JobSeeker">
 
@@ -73,7 +73,7 @@
                     android:id="@+id/cv_PinEmployer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffffff"
+                    android:background="#d0e77b"
                     app:cardCornerRadius="10dp"
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="25dp"
@@ -93,7 +93,7 @@
                     android:id="@+id/cv_PassEmployer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffffff"
+                    android:background="#d0e77b"
                     app:cardCornerRadius="10dp"
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="25dp"
@@ -126,6 +126,24 @@
                     android:layout_width="130dp"
                     android:layout_height="60dp"
                     android:background="@drawable/buttonshape"
+                    />
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="OR"
+                    android:textSize="20sp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#ffffff"
+                    />
+                <Button
+                    android:id="@+id/signupjobSeeker_btn"
+                    android:text="SIGN UP"
+                    android:textColor="#f02921"
+                    android:textSize="30sp"
+                    android:layout_width="130dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/buttonshape_signup"
                     />
             </LinearLayout>
         </RelativeLayout>

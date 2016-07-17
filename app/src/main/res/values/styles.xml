@@ -31,7 +31,14 @@
         <item name="colorAccent">#34495e</item>
     </style>
 
-    <!-- Text Styles-->
+   <!-- Progress Dialog Style -->
+   <style name="CustomProgressDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+
+       <item name="colorAccent">#000000</item>
+       <item name="android:textColor">#ffffff</item>
+       <item name="android:background">#34495e</item>
+
+   </style>
 
 
 </resources>

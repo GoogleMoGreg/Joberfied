@@ -88,7 +88,7 @@ public class JobSeekerMain extends AppCompatActivity  {
         itemEditProfile= (SecondaryDrawerItem) new SecondaryDrawerItem().withIdentifier(4).withName("Edit Profile").withTextColor(Color.BLACK);
         itemRecomendJobs=(SecondaryDrawerItem) new SecondaryDrawerItem().withIdentifier(5).withName("Recommended Jobs").withTextColor(Color.BLACK);
         itemExportCV=(SecondaryDrawerItem) new SecondaryDrawerItem().withIdentifier(6).withName("Export CV").withTextColor(Color.BLACK);
-        itemLogout=(SecondaryDrawerItem) new SecondaryDrawerItem().withIdentifier(6).withName("Logout").withTextColor(Color.BLACK);
+        itemLogout=(SecondaryDrawerItem) new SecondaryDrawerItem().withIdentifier(7).withName("Logout").withTextColor(Color.BLACK);
         drawer=new DrawerBuilder().withActivity(this)
                                   .withToolbar(toolbar)
                                   .addDrawerItems(
@@ -104,6 +104,29 @@ public class JobSeekerMain extends AppCompatActivity  {
                                   ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+                     if(drawerItem.getIdentifier()==1){
+                         Log.e("MESSAGE: ","CLICKED 1");
+                     }
+                     else if (drawerItem.getIdentifier()==2) {
+                         Log.e("MESSAGE: ","CLICKED 2");
+                     }
+                     else if (drawerItem.getIdentifier()==3) {
+                         Log.e("MESSAGE: ","CLICKED 3");
+                     }
+                     else if (drawerItem.getIdentifier()==4) {
+                         Log.e("MESSAGE: ","CLICKED 4");
+                     }
+                     else if (drawerItem.getIdentifier()==5) {
+                         Log.e("MESSAGE: ","CLICKED 5");
+                     }
+                     else if (drawerItem.getIdentifier()==6) {
+                         Log.e("MESSAGE: ","CLICKED 6");
+                     }
+                     else if (drawerItem.getIdentifier()==7) {
+                         Log.e("MESSAGE: ","CLICKED 7");
+                     }
+
                         return false;
                     }
 
