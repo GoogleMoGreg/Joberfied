@@ -25,7 +25,7 @@
     <string name="app_JobSeeker_Title">\" IdealProgrammer \"</string>
 
     <!-- Jobseeker Register Strings -->
-    <string name="app_JobSeeker_regTitle">Registration | Job Seeker</string>
+    <string name="app_JobSeeker_regTitle">REGISTRATION</string>
     <string name="app_JobSeeker_regFname">First Name</string>
     <string name="app_JobSeeker_regLname">Last Name</string>
     <string name="app_JobSeeker_regEmail">Email Address</string>
