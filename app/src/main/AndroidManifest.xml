@@ -27,11 +27,14 @@
             android:name=".JobSeekerMain"
             android:label="@string/app_name"
             android:theme="@style/AppTheme_NoActionBarTab" />
-        <activity android:name=".JobSeeker_Register"
-                  android:label=" "
-                  android:parentActivityName=".JobSeeker"
-            >
-        </activity>
+        <activity
+            android:name=".JobSeeker_Register"
+            android:label=" "
+            android:parentActivityName=".JobSeeker"></activity>
+        <activity
+            android:name=".Employer_Register"
+            android:label=" "
+            android:parentActivityName=".Employer"></activity>
     </application>
 
 </manifest>
