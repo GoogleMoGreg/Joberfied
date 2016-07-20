@@ -35,6 +35,8 @@ dependencies {
             transitive=true
     }
     compile'me.grantland:autofittextview:0.2.+'
+    compile'com.makeramen:roundedimageview:2.2.1'
+
 
 
 }
