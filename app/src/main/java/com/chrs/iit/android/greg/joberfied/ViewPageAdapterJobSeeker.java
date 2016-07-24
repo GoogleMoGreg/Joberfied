@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by greg on 7/6/16.
  */
-public class ViewPageAdapterEmployer extends FragmentPagerAdapter {
+public class ViewPageAdapterJobSeeker extends FragmentPagerAdapter {
 
 
     ArrayList<Fragment>fragments=new ArrayList<>();
@@ -18,7 +18,7 @@ public class ViewPageAdapterEmployer extends FragmentPagerAdapter {
         this.fragments.add(fragment);
     }
 
-    public ViewPageAdapterEmployer(FragmentManager fm) {
+    public ViewPageAdapterJobSeeker(FragmentManager fm) {
         super(fm);
     }
 

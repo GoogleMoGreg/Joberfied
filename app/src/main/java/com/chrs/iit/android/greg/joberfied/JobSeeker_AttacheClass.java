@@ -5,16 +5,21 @@ package com.chrs.iit.android.greg.joberfied;
  */
 public class JobSeeker_AttacheClass {
 
-    private String adsTitle,
+            String adsTitle,
                    adsQualifications,
                    adsSkills,
                    adsRefer;
+    int adsLogo,
+        adsBackground;
 
-    public JobSeeker_AttacheClass(String adsTitle, String adsQualifications, String adsSkills, String adsRefer) {
+
+    public JobSeeker_AttacheClass(String adsTitle, String adsQualifications, String adsSkills, String adsRefer, int adsLogo, int adsBackground) {
         this.adsTitle = adsTitle;
         this.adsQualifications = adsQualifications;
         this.adsSkills = adsSkills;
         this.adsRefer = adsRefer;
+        this.adsLogo = adsLogo;
+        this.adsBackground = adsBackground;
     }
 
     public String getAdsTitle() {
@@ -47,5 +52,21 @@ public class JobSeeker_AttacheClass {
 
     public void setAdsRefer(String adsRefer) {
         this.adsRefer = adsRefer;
+    }
+
+    public int getAdsLogo() {
+        return adsLogo;
+    }
+
+    public void setAdsLogo(int adsLogo) {
+        this.adsLogo = adsLogo;
+    }
+
+    public int getAdsBackground() {
+        return adsBackground;
+    }
+
+    public void setAdsBackground(int adsBackground) {
+        this.adsBackground = adsBackground;
     }
 }

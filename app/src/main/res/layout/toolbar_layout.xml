@@ -2,35 +2,30 @@
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fitsSystemWindows="true"
     android:minHeight="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
     android:id="@+id/toolbar"
-
     >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#f4ebeb"
-            android:layout_marginRight="10dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Search jobs here"
-                android:paddingTop="10dp"
-                android:textSize="15sp"
-                android:paddingLeft="10dp"
-                android:textColor="#000000"/>
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_alignParentRight="true"
-        android:background="@android:color/transparent"
-        >
-    </SearchView>
-        </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f4ebeb"
+        android:layout_marginRight="10dp"
+        android:clickable="true">
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            tools:ignore="MissingPrefix">
+        </SearchView>
+    </RelativeLayout>
+
 </android.support.v7.widget.Toolbar>

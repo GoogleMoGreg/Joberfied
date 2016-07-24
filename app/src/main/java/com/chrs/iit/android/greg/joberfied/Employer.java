@@ -29,7 +29,7 @@ public class Employer extends AppCompatActivity implements View.OnClickListener{
         switch (view.getId()){
 
             case R.id.loginEmployer_btn:
-
+                 ShowEmployerMain();
                 break;
 
             case R.id.signupEmployer_btn:
@@ -38,8 +38,9 @@ public class Employer extends AppCompatActivity implements View.OnClickListener{
 
         }
     }
-    public void showEmployerMain(){
-
+    public void ShowEmployerMain(){
+        Intent showEmployerMain=new Intent(this,EmployerMain.class);
+        startActivity(showEmployerMain);
     }
 
     public void ShowEmployerRegister(){

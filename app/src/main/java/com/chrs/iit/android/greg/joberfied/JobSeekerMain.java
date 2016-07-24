@@ -6,12 +6,18 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.CollapsibleActionView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.holder.BadgeStyle;
@@ -21,7 +27,7 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 
-public class JobSeekerMain extends AppCompatActivity  {
+public class JobSeekerMain extends AppCompatActivity{
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -33,32 +39,26 @@ public class JobSeekerMain extends AppCompatActivity  {
             R.drawable.ic_action_bookmark
     };
 
-    ViewPageAdapterEmployer viewPageAdapterEmployer;
-    private SearchView searchView;
+    ViewPageAdapterJobSeeker viewPageAdapterJobSeeker;
     Drawer drawer;
     PrimaryDrawerItem itemViews,itemAdmires,itemFeeds;
     SecondaryDrawerItem itemEditProfile,itemRecomendJobs,itemExportCV,itemLogout;
+    public static SearchView searchView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_employer_main);
+        setContentView(R.layout.activity_jobseeker_main);
         tabLayout=(TabLayout)findViewById(R.id.sliding_Layout);
         viewPager=(ViewPager)findViewById(R.id.viewPager);
-        searchView=(SearchView)findViewById(R.id.searchView);
         toolbar=(Toolbar)findViewById(R.id.toolbar);
+        searchView=(SearchView)findViewById(R.id.searchView);
         setSupportActionBar(toolbar);
-
         tabLayout.setupWithViewPager(viewPager);
         setupTabTitle();
         setupTabIcons();
 
-        searchView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.e("Message: ","sv is clicked!");
-            }
-        });
 
 
         itemViews=new PrimaryDrawerItem().withIdentifier(1).withName("Views")
@@ -145,13 +145,15 @@ public class JobSeekerMain extends AppCompatActivity  {
     }
 
     private void setupTabTitle(){
-        viewPageAdapterEmployer=new ViewPageAdapterEmployer(getSupportFragmentManager());
-        viewPageAdapterEmployer.addFragments(new JobSeekerProfile());
-        viewPageAdapterEmployer.addFragments(new JobSeekerAttache());
-        viewPageAdapterEmployer.addFragments(new JobSeekerMessage());
-        viewPageAdapterEmployer.addFragments(new JobSeekerBookmark());
-        viewPager.setAdapter(viewPageAdapterEmployer);
+        viewPageAdapterJobSeeker =new ViewPageAdapterJobSeeker(getSupportFragmentManager());
+        viewPageAdapterJobSeeker.addFragments(new JobSeekerProfile());
+        viewPageAdapterJobSeeker.addFragments(new JobSeekerAttache());
+        viewPageAdapterJobSeeker.addFragments(new JobSeekerMessage());
+        viewPageAdapterJobSeeker.addFragments(new JobSeekerBookmark());
+        viewPager.setAdapter(viewPageAdapterJobSeeker);
     }
+
+
 
 
 }

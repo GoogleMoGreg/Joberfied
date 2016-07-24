@@ -7,6 +7,7 @@
         <item name="colorPrimary">#34495e</item>
         <item name="colorPrimaryDark">#34495e</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
 
@@ -15,6 +16,7 @@
         <item name="colorPrimary">#333333</item>
         <item name="colorPrimaryDark">#34495e</item>
         <item name="colorAccent">#71e1af</item>
+
 
         <!--Material Drawer-->
         <item name="material_drawer_primary_text">@color/material_drawer_primary_dark</item>
@@ -26,10 +28,7 @@
     </style>
 
      <!-- SearchView Style -->
-    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
-        <item name="searchHintIcon">@drawable/ic_action_message</item>
-        <item name="colorAccent">#34495e</item>
-    </style>
+
 
    <!-- Progress Dialog Style -->
    <style name="CustomProgressDialog" parent="Theme.AppCompat.Light.Dialog.Alert">

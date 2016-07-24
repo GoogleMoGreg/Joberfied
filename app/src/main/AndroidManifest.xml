@@ -30,11 +30,12 @@
         <activity
             android:name=".JobSeeker_Register"
             android:label=" "
-            android:parentActivityName=".JobSeeker"></activity>
+            android:parentActivityName=".JobSeeker" />
         <activity
             android:name=".Employer_Register"
             android:label=" "
-            android:parentActivityName=".Employer"></activity>
+            android:parentActivityName=".Employer" />
+        <activity android:name=".EmployerMain"></activity>
     </application>
 
 </manifest>
