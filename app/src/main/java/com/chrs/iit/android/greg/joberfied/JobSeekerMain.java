@@ -1,6 +1,7 @@
 package com.chrs.iit.android.greg.joberfied;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -40,12 +41,13 @@ public class JobSeekerMain extends AppCompatActivity{
     PrimaryDrawerItem itemViews,itemAdmires,itemFeeds;
     SecondaryDrawerItem itemEditProfile,itemRecomendJobs,itemExportCV,itemLogout;
     public static SearchView searchView;
-
+    private DBSqliteHelper dbSqliteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jobseeker_main);
+        dbSqliteHelper=new DBSqliteHelper(this);
         tabLayout=(TabLayout)findViewById(R.id.sliding_Layout);
         viewPager=(ViewPager)findViewById(R.id.viewPager);
         toolbar=(Toolbar)findViewById(R.id.toolbar);
@@ -53,6 +55,7 @@ public class JobSeekerMain extends AppCompatActivity{
         setSupportActionBar(toolbar);
         tabLayout.setupWithViewPager(viewPager);
         setupTabTitle();
+        viewPager.setAdapter(viewPageAdapterJobSeeker);
         setupTabIcons();
 
 
@@ -121,6 +124,9 @@ public class JobSeekerMain extends AppCompatActivity{
                      }
                      else if (drawerItem.getIdentifier()==7) {
                          Log.e("MESSAGE: ","CLICKED 7");
+                         dbSqliteHelper.logoutAccount();
+                         Log.e("MESSAGE: ","DELETING DATABASE");
+                         showLogut();
                      }
 
                         return false;
@@ -174,15 +180,12 @@ public class JobSeekerMain extends AppCompatActivity{
         viewPageAdapterJobSeeker.addFragments(new JobSeekerAttache());
         viewPageAdapterJobSeeker.addFragments(new JobSeekerMessage());
         viewPageAdapterJobSeeker.addFragments(new JobSeekerBookmark());
-        viewPager.setAdapter(viewPageAdapterJobSeeker);
     }
 
-    public void restartJobSeekerAtache(){
-        android.app.Fragment fragmentJobSeeker_Atache=getFragmentManager().findFragmentById(1);
-        android.app.FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
-        fragmentTransaction.detach(fragmentJobSeeker_Atache);
-        fragmentTransaction.attach(fragmentJobSeeker_Atache);
-        fragmentTransaction.commit();
+    public void showLogut(){
+        Intent showMainPage=new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(showMainPage);
+        this.finish();
     }
 
 

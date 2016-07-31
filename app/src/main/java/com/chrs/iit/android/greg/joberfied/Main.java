@@ -18,6 +18,7 @@ import android.widget.ImageView;
 public class Main extends Fragment implements View.OnClickListener {
 
     ImageView iv_jobseeker,iv_employer;
+    DBSqliteHelper dbSqliteHelper;
 
 
     private static final String ARG_LAYOUT_RESID="layoutResId";
@@ -45,6 +46,7 @@ public class Main extends Fragment implements View.OnClickListener {
         if (getArguments()!=null&& getArguments().containsKey(ARG_LAYOUT_RESID))
             layoutResId=getArguments().getInt(ARG_LAYOUT_RESID);
 
+
     }
 
 
@@ -53,12 +55,11 @@ public class Main extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the jobseeker_attache_jobslist for this fragment
         View view=inflater.inflate(layoutResId, container, false);
-
+        dbSqliteHelper=new DBSqliteHelper(getContext());
         iv_jobseeker=(ImageView)view.findViewById(R.id.iv_jobSeeker);
         iv_jobseeker.setOnClickListener(this);
         iv_employer=(ImageView)view.findViewById(R.id.iv_employer);
         iv_employer.setOnClickListener(this);
-
 
 
         return view;
@@ -70,8 +71,15 @@ public class Main extends Fragment implements View.OnClickListener {
         switch (view.getId()){
 
             case R.id.iv_jobSeeker:
-                Intent showJobseeker =new Intent(getActivity(),JobSeeker.class);
-                startActivity(showJobseeker);
+                /*Intent showJobseeker =new Intent(getActivity(),JobSeeker.class);
+                startActivity(showJobseeker);*/
+                if(dbSqliteHelper.checkLoginAccount()){
+                    ShowJobSeekerMain();
+                }
+                else if(!dbSqliteHelper.checkLoginAccount()){
+
+                    ShowJobSeeker();
+                }
                 break;
             case R.id.iv_employer:
                 Intent showEmployer=new Intent(getActivity(),Employer.class);
@@ -81,9 +89,16 @@ public class Main extends Fragment implements View.OnClickListener {
     }
 
 
+    public void ShowJobSeeker(){
+        Intent showJobseeker =new Intent(getActivity(),JobSeeker.class);
+        startActivity(showJobseeker);
+    }
 
+    public void ShowJobSeekerMain(){
 
-
-
+        Intent showJobSeekerMain = new Intent(getActivity(), JobSeekerMain.class);
+        startActivity(showJobSeekerMain);
+        getActivity().finish();
+    }
 
 }

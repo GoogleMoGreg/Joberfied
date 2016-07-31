@@ -20,17 +20,21 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class JobSeeker extends AppCompatActivity implements View.OnClickListener {
 
     Button login_btn, signup_btn;
     EditText et_pin, et_pass;
     String pin, pass;
+    DBSqliteHelper dbSqliteHelper;
+    ArrayList<JobSeeker_LoginClass>jobSeeker_loginClassArrayList=new ArrayList<>();
     //http://joberfied.com/api/jobber/functions/auth.php?pin=1234-JJ&password=1 -->url login
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_seeker);
-
+        dbSqliteHelper=new DBSqliteHelper(this);
 
         et_pass = (EditText) findViewById(R.id.et_PassJobSeeker);
         et_pin = (EditText) findViewById(R.id.et_PinJobSeeker);
@@ -92,7 +96,14 @@ public class JobSeeker extends AppCompatActivity implements View.OnClickListener
                 String status=response.getString("status");
                 Log.e("MESSAGE STATUS: ",status);
                 if(status.equals("true")){
+
                     ShowJobseekerMain();
+                    dbSqliteHelper.addAccount(new JobSeeker_LoginClass(pin,pass));
+                    for(JobSeeker_LoginClass j:jobSeeker_loginClassArrayList){
+                        String dbTest="PIN: "+j.getUser_pin()+"\n"
+                                        +"PASS: "+j.getUser_pass();
+                        Log.e("MESSAGE: ",dbTest);
+                    }
                 }else if(status.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Account Does not Exist",Toast.LENGTH_LONG).show();
                 }
@@ -107,7 +118,6 @@ public class JobSeeker extends AppCompatActivity implements View.OnClickListener
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"Account Does not Exist",Toast.LENGTH_LONG).show();
             }
         });
 
