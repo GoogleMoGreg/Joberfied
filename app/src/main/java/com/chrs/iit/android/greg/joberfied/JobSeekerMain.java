@@ -3,21 +3,17 @@ package com.chrs.iit.android.greg.joberfied;
 
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.CollapsibleActionView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.SearchView;
-import android.widget.TextView;
-
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
+import android.support.v4.app.FragmentTransaction;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.holder.BadgeStyle;
@@ -134,6 +130,34 @@ public class JobSeekerMain extends AppCompatActivity{
                 .withDrawerGravity(Gravity.END)
                 .build();
 
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(tabLayout.getTabAt(0).isSelected()){
+                    Log.e("MESSAGE: ","SELECTED TAB1");
+                   // restartJobSeekerAtache();
+                    Log.e("MESSAGE: ","RESTARTED TAB 2");
+                }
+                if(tabLayout.getTabAt(1).isSelected()){
+                    Log.e("MESSAGE: ","SELECTED TAB2");
+
+                }
+                if(tabLayout.getTabAt(2).isSelected()){
+                    Log.e("MESSAGE: ","SELECTED TAB3");
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
 
     }
 
@@ -151,6 +175,14 @@ public class JobSeekerMain extends AppCompatActivity{
         viewPageAdapterJobSeeker.addFragments(new JobSeekerMessage());
         viewPageAdapterJobSeeker.addFragments(new JobSeekerBookmark());
         viewPager.setAdapter(viewPageAdapterJobSeeker);
+    }
+
+    public void restartJobSeekerAtache(){
+        android.app.Fragment fragmentJobSeeker_Atache=getFragmentManager().findFragmentById(1);
+        android.app.FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+        fragmentTransaction.detach(fragmentJobSeeker_Atache);
+        fragmentTransaction.attach(fragmentJobSeeker_Atache);
+        fragmentTransaction.commit();
     }
 
 

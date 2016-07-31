@@ -17,7 +17,7 @@
     <RelativeLayout
                 android:id="@+id/relative_Layout_background"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:background="@drawable/work_sample"
                 android:layout_below="@+id/iv_divider_jobseeker_attache_list_top"
                 android:layout_marginTop="10dp"
@@ -25,7 +25,7 @@
                 android:layout_marginRight="10dp"
                 >
                 <com.makeramen.roundedimageview.RoundedImageView
-                    android:id="@+id/iv_company"
+                    android:id="@+id/iv_Adscompany"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/accenture_sample"
@@ -35,6 +35,18 @@
                     app:riv_border_width="5dp"
                     app:riv_border_color="#f02921"
                     />
+            <TextView
+                android:id="@+id/tv_feedsType_ads"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TYPE"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:paddingBottom="5dp"
+                />
             </RelativeLayout>
 
             <android.support.v7.widget.CardView
@@ -60,7 +72,7 @@
                         android:textColor="#584343"
                         android:gravity="center"/>
                     <TextView
-                        android:id="@+id/ads_qualifications"
+                        android:id="@+id/ads_qualifications_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="QUALIFICATIONS"
@@ -72,8 +84,31 @@
                         android:layout_marginLeft="70dp"
                         android:layout_marginRight="70dp"
                         />
+
+                    <ImageView
+                        android:id="@+id/iv_divider_jobseeker_design_top"
+                        android:layout_width="fill_parent"
+                        android:layout_height="5dp"
+                        android:background="#f02921"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/ads_qualifications_title"
+                        />
                     <TextView
-                        android:id="@+id/ads_qualifications_message"
+                        android:id="@+id/ads_qualifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="QUALIFICATIONS"
+                        android:textSize="15sp"
+                        android:textColor="#796f6f"
+                        android:layout_below="@+id/iv_divider_jobseeker_design_top"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginRight="70dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/ads_RequiredSkills"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="3 years related work experience"
@@ -86,22 +121,32 @@
                         android:layout_marginRight="70dp"
                         />
                     <TextView
-                        android:id="@+id/ads_skills"
+                        android:id="@+id/ads_YearsExperience"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Skills Required: CSS3, HTML5"
                         android:textSize="15sp"
                         android:textColor="#000000"
-                        android:layout_below="@+id/ads_qualifications_message"
+                        android:layout_below="@+id/ads_RequiredSkills"
                         android:gravity="center"
                         android:layout_marginTop="10dp"
                         />
+                    <ImageView
+                        android:id="@+id/iv_divider_jobseeker_design_bot"
+                        android:layout_width="fill_parent"
+                        android:layout_height="5dp"
+                        android:background="#f02921"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/ads_YearsExperience"
+                        />
                     <RelativeLayout
+                        android:id="@+id/relativeLayout_feeds_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/ads_skills"
+                        android:layout_below="@+id/iv_divider_jobseeker_design_bot"
                         android:gravity="center"
-                        android:layout_marginBottom="10dp">
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp">
                         <Button
                             android:id="@+id/refer_btn"
                             android:text="REFER PHP (3,000.00)"
@@ -139,6 +184,15 @@
                             android:layout_marginRight="5dp"
                             />
                     </RelativeLayout>
+                    <TextView
+                        android:id="@+id/tv_ads_dateCreated"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DATE CREATED"
+                        android:layout_below="@+id/relativeLayout_feeds_btn"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15sp"
+                        />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
 

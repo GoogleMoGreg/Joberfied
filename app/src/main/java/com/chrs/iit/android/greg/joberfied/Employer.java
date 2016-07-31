@@ -6,11 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class Employer extends AppCompatActivity implements View.OnClickListener{
 
 
     Button btn_login,btn_signup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +24,7 @@ public class Employer extends AppCompatActivity implements View.OnClickListener{
         btn_login.setOnClickListener(this);
         btn_signup=(Button)findViewById(R.id.signupEmployer_btn);
         btn_signup.setOnClickListener(this);
+
     }
 
     @Override
@@ -48,4 +52,6 @@ public class Employer extends AppCompatActivity implements View.OnClickListener{
         Intent showEmployerRegister=new Intent(this,Employer_Register.class);
         startActivity(showEmployerRegister);
     }
+
+
 }

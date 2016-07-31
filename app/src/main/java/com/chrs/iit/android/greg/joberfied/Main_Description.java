@@ -64,7 +64,7 @@ public class Main_Description extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the jobseeker_attache_jobslist for this fragment
         View view=inflater.inflate(layoutResId, container, false);
         tv_font_title=(TextView)view.findViewById(R.id.tv_font_title);
         Typeface customfont=Typeface.createFromAsset(getActivity().getAssets(), "font_title.ttf");

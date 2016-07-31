@@ -6,7 +6,7 @@
     tools:context="com.chrs.iit.android.greg.joberfied.Main_Description"
     tools:ignore="MissingPrefix">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- TODO: Update blank fragment jobseeker_attache_jobslist -->
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

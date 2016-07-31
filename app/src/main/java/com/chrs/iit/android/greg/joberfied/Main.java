@@ -51,7 +51,7 @@ public class Main extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the jobseeker_attache_jobslist for this fragment
         View view=inflater.inflate(layoutResId, container, false);
 
         iv_jobseeker=(ImageView)view.findViewById(R.id.iv_jobSeeker);

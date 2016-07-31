@@ -80,12 +80,13 @@
                     android:layout_marginTop="20dp"
                     >
                     <EditText
-                        android:id="@+id/et_PinEmployer"
+                        android:id="@+id/et_PinJobSeeker"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/app_pinJobseeker"
                         android:gravity="center_horizontal"
                         android:textSize="30sp"
+                        android:maxLines="1"
                         android:background="@android:color/transparent"
                         />
                 </android.support.v7.widget.CardView>
@@ -100,13 +101,14 @@
                     android:layout_marginTop="10dp"
                     >
                     <EditText
-                        android:id="@+id/et_PassEmployer"
+                        android:id="@+id/et_PassJobSeeker"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
                         android:hint="@string/app_passJobseeker"
                         android:textSize="30sp"
                         android:gravity="center_horizontal"
+                        android:maxLines="1"
                         android:background="@android:color/transparent"
                         />
                 </android.support.v7.widget.CardView>
