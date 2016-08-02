@@ -1,14 +1,33 @@
 package com.chrs.iit.android.greg.joberfied;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.media.ThumbnailUtils;
+import android.provider.MediaStore;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.volokh.danylo.video_player_manager.manager.PlayerItemChangeListener;
+import com.volokh.danylo.video_player_manager.manager.SingleVideoPlayerManager;
+import com.volokh.danylo.video_player_manager.manager.VideoPlayerManager;
+import com.volokh.danylo.video_player_manager.meta.MetaData;
+import com.volokh.danylo.video_player_manager.ui.MediaPlayerWrapper;
+import com.volokh.danylo.video_player_manager.ui.SimpleMainThreadMediaPlayerListener;
+import com.volokh.danylo.video_player_manager.ui.VideoPlayerView;
+
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,7 +36,7 @@ import java.util.List;
 public class JobSeeker_AttacheAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
-    private List<JobSeeker_AttacheClass>jobSeeker_attacheClassList;
+    private final List<JobSeeker_AttacheClass>jobSeeker_attacheClassList;
     private Context context;
     private String ADS="ads",JOBS="job",VIDS="video";
     public static final int Feeds_Ads=0,Feeds_Jobs=1,Feeds_Vids=2;
@@ -35,12 +54,6 @@ public class JobSeeker_AttacheAdapter extends RecyclerView.Adapter<RecyclerView.
     RecyclerView.ViewHolder viewHolder;
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        String testview=String.valueOf(viewType);
-        for(JobSeeker_AttacheClass jClass:jobSeeker_attacheClassList){
-            test+=jClass.getFeeds_type();
-        }
-      Log.e("ADAPTER TEST: ", test+"CHOICE: "+testview);
 
         LayoutInflater inflater=LayoutInflater.from(parent.getContext());
             switch (viewType){
@@ -96,14 +109,12 @@ public class JobSeeker_AttacheAdapter extends RecyclerView.Adapter<RecyclerView.
         viewHolder.tv_adsTitle.setText(jobSeekerAttacheClass.getAds_Title());
         viewHolder.tv_adsSkills.setText(jobSeekerAttacheClass.getAds_Reqd_Skills());
         viewHolder.tv_adsYearsExpi.setText(jobSeekerAttacheClass.getAds_YearsExp());
-        viewHolder.tv_adsDateCreated.setText(jobSeekerAttacheClass.getAds_YearsExp());
 
    }
 
     private void configureViewHolderJobs(ViewHolderJobs viewHolder,int position){
         JobSeeker_AttacheClass jobSeekerAttacheClass=jobSeeker_attacheClassList.get(position);
         viewHolder.tv_feedsTypeJobs.setText(jobSeekerAttacheClass.getFeeds_type());
-        viewHolder.tv_jobsDateCreated.setText(jobSeekerAttacheClass.getFeeds_dateCreated());
         viewHolder.tv_jobsQualifications.setText(jobSeekerAttacheClass.getJobs_Qualifications());
         viewHolder.tv_jobsReqdSkills.setText(jobSeekerAttacheClass.getJobs_ReqdSkills());
         viewHolder.tv_jobsRequirements.setText(jobSeekerAttacheClass.getJobs_Reqs());
@@ -114,7 +125,6 @@ public class JobSeeker_AttacheAdapter extends RecyclerView.Adapter<RecyclerView.
     private void configureViewHolderVids(ViewHolderVids viewHolder,int position){
         JobSeeker_AttacheClass jobSeekerAttacheClass=jobSeeker_attacheClassList.get(position);
         viewHolder.tv_feedsTypeVids.setText(jobSeekerAttacheClass.getFeeds_type());
-        viewHolder.tv_vidsDateCreated.setText(jobSeekerAttacheClass.getFeeds_dateCreated());
         viewHolder.tv_vidsDescription.setText(jobSeekerAttacheClass.getVids_Descrip());
         viewHolder.tv_vidsLinks.setText(jobSeekerAttacheClass.getVids_Links());
         viewHolder.tv_vidsTags.setText(jobSeekerAttacheClass.getVids_Tags());
@@ -128,15 +138,11 @@ public class JobSeeker_AttacheAdapter extends RecyclerView.Adapter<RecyclerView.
         return this.jobSeeker_attacheClassList.size();
     }
 
-    String newTest;
+
 
     @Override
     public int getItemViewType(int position) {
 
-        for(JobSeeker_AttacheClass jClass:jobSeeker_attacheClassList){
-            newTest+=jClass.getFeeds_type();
-        }
-        Log.e("ADAPTER TESTVIEWTYPE: ",newTest);
 
         if(jobSeeker_attacheClassList.get(position).getFeeds_type().equals(ADS)){
             Log.e("ITEMVIEW: ",jobSeeker_attacheClassList.get(position).getFeeds_type());
@@ -170,7 +176,7 @@ public class JobSeeker_AttacheAdapter extends RecyclerView.Adapter<RecyclerView.
             tv_adsQulifications=(TextView) itemView.findViewById(R.id.ads_qualifications);
             tv_adsSkills=(TextView) itemView.findViewById(R.id.ads_RequiredSkills);
             tv_adsYearsExpi=(TextView) itemView.findViewById(R.id.ads_YearsExperience);
-            tv_adsDateCreated=(TextView) itemView.findViewById(R.id.tv_ads_dateCreated);
+
 
         }
 
@@ -194,61 +200,13 @@ public class JobSeeker_AttacheAdapter extends RecyclerView.Adapter<RecyclerView.
                     tv_jobsQualifications=(TextView) itemView.findViewById(R.id.jobs_qualifications);
                     tv_jobsReqdSkills=(TextView) itemView.findViewById(R.id.jobs_RequiredSkills);
                     tv_jobsYearsExpi=(TextView) itemView.findViewById(R.id.jobs_YearsExperience);
-                    tv_jobsDateCreated=(TextView) itemView.findViewById(R.id.tv_jobs_dateCreated);
 
         }
 
-        public TextView getTv_feedsTypeJobs() {
-            return tv_feedsTypeJobs;
-        }
-
-        public void setTv_feedsTypeJobs(TextView tv_feedsTypeJobs) {
-            this.tv_feedsTypeJobs = tv_feedsTypeJobs;
-        }
-
-        public TextView getTv_jobsRequirements() {
-            return tv_jobsRequirements;
-        }
-
-        public void setTv_jobsRequirements(TextView tv_jobsRequirements) {
-            this.tv_jobsRequirements = tv_jobsRequirements;
-        }
-
-        public TextView getTv_jobsQualifications() {
-            return tv_jobsQualifications;
-        }
-
-        public void setTv_jobsQualifications(TextView tv_jobsQualifications) {
-            this.tv_jobsQualifications = tv_jobsQualifications;
-        }
-
-        public TextView getTv_jobsReqdSkills() {
-            return tv_jobsReqdSkills;
-        }
-
-        public void setTv_jobsReqdSkills(TextView tv_jobsReqdSkills) {
-            this.tv_jobsReqdSkills = tv_jobsReqdSkills;
-        }
-
-        public TextView getTv_jobsYearsExpi() {
-            return tv_jobsYearsExpi;
-        }
-
-        public void setTv_jobsYearsExpi(TextView tv_jobsYearsExpi) {
-            this.tv_jobsYearsExpi = tv_jobsYearsExpi;
-        }
-
-        public TextView getTv_jobsDateCreated() {
-            return tv_jobsDateCreated;
-        }
-
-        public void setTv_jobsDateCreated(TextView tv_jobsDateCreated) {
-            this.tv_jobsDateCreated = tv_jobsDateCreated;
-        }
     }
 
 
-    public class ViewHolderVids extends RecyclerView.ViewHolder{
+    public class ViewHolderVids extends RecyclerView.ViewHolder {
 
 
         TextView tv_feedsTypeVids,
@@ -257,17 +215,86 @@ public class JobSeeker_AttacheAdapter extends RecyclerView.Adapter<RecyclerView.
                 tv_vidsTags,
                 tv_vidsLinks,
                 tv_vidsDateCreated;
+        VideoPlayerView vid_vids;
+        ImageView vid_videoCover;
+
+        AssetFileDescriptor getAss;
+
 
         public ViewHolderVids(View itemView) {
             super(itemView);
-                    tv_feedsTypeVids=(TextView) itemView.findViewById(R.id.tv_feedsType_vids);
-                    tv_vidsTitle=(TextView) itemView.findViewById(R.id.vids_title);
-                    tv_vidsDescription=(TextView) itemView.findViewById(R.id.vids_description);
-                    tv_vidsTags=(TextView) itemView.findViewById(R.id.vids_tags);
-                    tv_vidsLinks=(TextView) itemView.findViewById(R.id.vids_links);
-                    tv_vidsDateCreated=(TextView) itemView.findViewById(R.id.tv_vids_dateCreated);
-        }
+            tv_feedsTypeVids = (TextView) itemView.findViewById(R.id.tv_feedsType_vids);
+            tv_vidsTitle = (TextView) itemView.findViewById(R.id.vids_title);
+            tv_vidsDescription = (TextView) itemView.findViewById(R.id.vids_description);
+            tv_vidsTags = (TextView) itemView.findViewById(R.id.vids_tags);
+            tv_vidsLinks = (TextView) itemView.findViewById(R.id.vids_links);
+            vid_vids = (VideoPlayerView) itemView.findViewById(R.id.vids_video);
+            vid_videoCover = (ImageView) itemView.findViewById(R.id.vid_videoCover);
 
+
+            final VideoPlayerManager<MetaData> mVideoPlayerManager = new SingleVideoPlayerManager(new PlayerItemChangeListener() {
+                @Override
+                public void onPlayerItemChanged(MetaData currentItemMetaData) {
+
+                }
+            });
+
+            try {
+                getAss = context.getAssets().openFd("sample_video_jobber.mp4");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            vid_vids.addMediaPlayerListener(new SimpleMainThreadMediaPlayerListener() {
+                @Override
+                public void onVideoSizeChangedMainThread(int width, int height) {
+
+                }
+
+                @Override
+                public void onVideoPreparedMainThread() {
+                    Log.e("VIDEO MESSAGE: ","PLAYING VIDEO");
+                    vid_videoCover.setVisibility(View.INVISIBLE);
+                }
+
+                @Override
+                public void onVideoCompletionMainThread() {
+                    Log.e("VIDEO MESSAGE: ","VIDEO COMPLETE");
+                    vid_videoCover.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onErrorMainThread(int what, int extra) {
+                    vid_videoCover.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onBufferingUpdateMainThread(int percent) {
+                    vid_videoCover.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onVideoStoppedMainThread() {
+                    Log.e("VIDEO MESSAGE: ","VIDEO STOPS");
+                    vid_videoCover.setVisibility(View.VISIBLE);
+                }
+            });
+
+          vid_videoCover.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+
+
+                  mVideoPlayerManager.playNewVideo(null, vid_vids, getAss);
+              }
+          });
+
+
+
+
+
+
+        }
     }
 }
 

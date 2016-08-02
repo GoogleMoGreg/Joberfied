@@ -30,17 +30,16 @@ public class JobSeekerMain extends AppCompatActivity{
     private ViewPager viewPager;
     private Toolbar toolbar;
     private int[] images={
-            R.drawable.ic_action_profile,
             R.drawable.ic_action_attache,
             R.drawable.ic_action_message,
-            R.drawable.ic_action_bookmark
+            R.drawable.ic_action_bookmark,
+            R.drawable.ic_action_profile
     };
 
     ViewPageAdapterJobSeeker viewPageAdapterJobSeeker;
     Drawer drawer;
     PrimaryDrawerItem itemViews,itemAdmires,itemFeeds;
     SecondaryDrawerItem itemEditProfile,itemRecomendJobs,itemExportCV,itemLogout;
-    public static SearchView searchView;
     private DBSqliteHelper dbSqliteHelper;
 
     @Override
@@ -51,11 +50,11 @@ public class JobSeekerMain extends AppCompatActivity{
         tabLayout=(TabLayout)findViewById(R.id.sliding_Layout);
         viewPager=(ViewPager)findViewById(R.id.viewPager);
         toolbar=(Toolbar)findViewById(R.id.toolbar);
-        searchView=(SearchView)findViewById(R.id.searchView);
         setSupportActionBar(toolbar);
         tabLayout.setupWithViewPager(viewPager);
         setupTabTitle();
         viewPager.setAdapter(viewPageAdapterJobSeeker);
+        viewPager.setOffscreenPageLimit(4);
         setupTabIcons();
 
 
@@ -136,35 +135,6 @@ public class JobSeekerMain extends AppCompatActivity{
                 .withDrawerGravity(Gravity.END)
                 .build();
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                if(tabLayout.getTabAt(0).isSelected()){
-                    Log.e("MESSAGE: ","SELECTED TAB1");
-                   // restartJobSeekerAtache();
-                    Log.e("MESSAGE: ","RESTARTED TAB 2");
-                }
-                if(tabLayout.getTabAt(1).isSelected()){
-                    Log.e("MESSAGE: ","SELECTED TAB2");
-
-                }
-                if(tabLayout.getTabAt(2).isSelected()){
-                    Log.e("MESSAGE: ","SELECTED TAB3");
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-
     }
 
     private void setupTabIcons(){
@@ -176,10 +146,12 @@ public class JobSeekerMain extends AppCompatActivity{
 
     private void setupTabTitle(){
         viewPageAdapterJobSeeker =new ViewPageAdapterJobSeeker(getSupportFragmentManager());
-        viewPageAdapterJobSeeker.addFragments(new JobSeekerProfile());
+        Log.e("MESSAGE: ","CALLING ATTACHE MAIN");
         viewPageAdapterJobSeeker.addFragments(new JobSeekerAttache());
         viewPageAdapterJobSeeker.addFragments(new JobSeekerMessage());
         viewPageAdapterJobSeeker.addFragments(new JobSeekerBookmark());
+        viewPageAdapterJobSeeker.addFragments(new JobSeekerProfile());
+
     }
 
     public void showLogut(){

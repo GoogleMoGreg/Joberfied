@@ -48,12 +48,30 @@
             android:paddingBottom="5dp"
             />
     </RelativeLayout>
+    <com.volokh.danylo.video_player_manager.ui.VideoPlayerView
+        android:id="@+id/vids_video"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/relative_Layout_background"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        />
+    <ImageView
+        android:id="@+id/vid_videoCover"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/relative_Layout_background"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#000000"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cv_ads"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/relative_Layout_background"
+        android:layout_below="@+id/vid_videoCover"
         app:cardCornerRadius="10dp"
         android:background="#ead4d4"
         app:contentPadding="10dp"
@@ -184,15 +202,6 @@
                     android:layout_marginRight="5dp"
                     />
             </RelativeLayout>
-            <TextView
-                android:id="@+id/tv_vids_dateCreated"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="DATE CREATED"
-                android:layout_below="@+id/relativeLayout_feeds_btn"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
-                />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

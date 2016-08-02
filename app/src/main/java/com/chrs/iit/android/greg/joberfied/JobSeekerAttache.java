@@ -41,8 +41,7 @@ public class JobSeekerAttache extends Fragment {
         // Required empty public constructor
     }
 
-    List<JobSeeker_AttacheClass>jobSeeker_attacheClassList=new ArrayList<>();
-
+    final List<JobSeeker_AttacheClass>jobSeeker_attacheClassList=new ArrayList<>();
     private RecyclerView recyclerView;
     private JobSeeker_AttacheAdapter jobSeekerAttacheAdapter;
     public static TextView tv_search_results;
@@ -57,21 +56,18 @@ public class JobSeekerAttache extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the jobseeker_attache_jobslist for this fragment
-        setHasOptionsMenu(true);
+        Log.e("MESSAGE: ","CALLING ATTACHE");
+        View view=inflater.inflate(R.layout.fragment_jobseeker_attache, container, false);
 
-
-        final View view=inflater.inflate(R.layout.fragment_jobseeker_attache, container, false);
         recyclerView=(RecyclerView)view.findViewById(R.id.recycle_view);
-        tv_search_results=(TextView)view.findViewById(R.id.tv_search_results);
-        jobSeekerAttacheAdapter=new JobSeeker_AttacheAdapter(jobSeeker_attacheClassList,getContext());
-
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        tv_search_results=(TextView)view.findViewById(R.id.tv_search_results);
         jobSeekerAttacheAdapter=new JobSeeker_AttacheAdapter(jobSeeker_attacheClassList,getContext());
-        makeJSONRequest();
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(jobSeekerAttacheAdapter);
-        jobSeekerAttacheAdapter.notifyDataSetChanged();
+        Log.e("MESSAGE: ","CALLING VOLLEY REQUEST");
+        makeJSONRequest();
 
 
         return view;
@@ -79,6 +75,7 @@ public class JobSeekerAttache extends Fragment {
 
     public void makeJSONRequest() {
 
+        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest (Request.Method.GET,URL_TAG,
                 null,new Response.Listener<JSONObject>() {
             @Override
@@ -113,33 +110,7 @@ public class JobSeekerAttache extends Fragment {
                         jClass.feeds_dateCreated=jObject.getString("date_created");
                         jobSeeker_attacheClassList.add(jClass);
                     }
-                    for(JobSeeker_AttacheClass jClass:jobSeeker_attacheClassList){
-                        opt=jClass.getFeeds_type();
-                        switch (opt){
-                            case "ads":
-                                test="Title: "+jClass.getAds_Title()+"\n"
-                                        +"Required_Skills: "+jClass.getAds_Reqd_Skills()+"\n"
-                                        +"Years_Experience: "+jClass.getAds_YearsExp()+"\n";
-                                break;
-                            case "job":
-                                test="Requirements: "+jClass.getJobs_Reqs()+"\n"
-                                        +"Qualifications: "+jClass.getJobs_Qualifications()+"\n"
-                                        +"Required Skills: "+jClass.getJobs_ReqdSkills()+"\n"
-                                        +"Years of Experience: "+jClass.getJobs_YearsExp()+"\n";
-                                break;
-                            case "video":
-                                test="Links: "+jClass.getVids_Links()+"\n"
-                                        +"Tags: "+jClass.getVids_Tags()+"\n"
-                                        +"Title: "+jClass.getVids_Title()+"\n"
-                                        +"Description: "+jClass.getVids_Descrip()+"\n";
-                                break;
-                        }
-
-                        FeedList+="PK: "+jClass.getFeeds_pk()+"\n"
-                                +"TYPE: "+jClass.getFeeds_type()+"\n"+
-                                test+"\n";
-                    }
-                    Log.e("MESSAGE: ",FeedList);
+                    jobSeekerAttacheAdapter.notifyDataSetChanged();
 
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -152,7 +123,6 @@ public class JobSeekerAttache extends Fragment {
             }
         });
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(jsonObjectRequest);
     }
 
@@ -199,3 +169,7 @@ public class JobSeekerAttache extends Fragment {
     }
 
 }
+
+
+///------------------------------------------------------------------------------------------------
+/*;*/
