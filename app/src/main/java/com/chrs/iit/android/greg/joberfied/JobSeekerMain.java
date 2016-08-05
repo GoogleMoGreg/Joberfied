@@ -54,7 +54,7 @@ public class JobSeekerMain extends AppCompatActivity{
         tabLayout.setupWithViewPager(viewPager);
         setupTabTitle();
         viewPager.setAdapter(viewPageAdapterJobSeeker);
-        viewPager.setOffscreenPageLimit(4);
+        //viewPager.setOffscreenPageLimit(4);
         setupTabIcons();
 
 

@@ -4,18 +4,64 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".JobSeekerAttache">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:id="@+id/relativeLayout_jobSeekerPersonalInfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/roundshape_layoutbackground"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+
+    >
+    <TextView
+        android:id="@+id/tv_JobSeekerPersonalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have not yet filled up your"
+        android:textSize="12sp"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        />
+    <TextView
+        android:id="@+id/tv_popUpPersonalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Personal Information."
+        android:textSize="12sp"
+        android:layout_toRightOf="@id/tv_JobSeekerPersonalInfo"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:textColor="#b641f5"
+        android:textColorLink="#b641f5"
+        android:clickable="true"
+        />
+
+</RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_view"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:scrollbars="vertical"
+        android:layout_below="@id/relativeLayout_jobSeekerPersonalInfo"
         >
     </android.support.v7.widget.RecyclerView>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/iv_jobSeekerLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chrs_loading"
+            android:visibility="invisible"/>
     <TextView
         android:id="@+id/tv_search_results"
         android:layout_width="wrap_content"
@@ -27,4 +73,5 @@
         android:layout_centerInParent="true"
         />
     </RelativeLayout>
+</RelativeLayout>
 </FrameLayout>
