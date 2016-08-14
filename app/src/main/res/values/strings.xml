@@ -43,4 +43,7 @@
 
     <!-- Search Results Jobseeker-->
     <string name="search_results">\"Sorry Job is not Available\"</string>
+    <!-- Spinner Country -->
+    <string name="spinner_commission">Commission Type</string>
+    <string name="spinner_value">Value Type</string>
 </resources>

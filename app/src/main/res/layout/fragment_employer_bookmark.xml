@@ -1,0 +1,115 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmployerBookmark">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+
+    <Button
+        android:id="@+id/btn_expand_createads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Ads"
+        android:onClick="btn_expand_createads"
+        android:textAllCaps="false"
+        android:background="@drawable/et_employer_background"
+        />
+
+        <Button
+            android:id="@+id/btn_expand_linkvideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_expand_createads"
+            android:text="Link a Video"
+            android:textAllCaps="false"
+            android:background="@drawable/et_employer_background"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:id="@+id/btn_expand_postjob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post a Job"
+            android:layout_below="@id/btn_expand_linkvideo"
+            android:textAllCaps="false"
+            android:background="@drawable/et_employer_background"
+            android:layout_marginTop="10dp"
+            />
+        <ImageView
+            android:id="@+id/iv_divider_top"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#7b7171"
+            android:layout_below="@+id/btn_expand_postjob"
+            android:layout_marginTop="20dp"
+            >
+        </ImageView>
+        <RelativeLayout
+            android:id="@+id/rl_expandableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_divider_top">
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandLayout_createads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ael_expanded="false"
+                app:ael_interpolator="bounce"
+                app:ael_orientation="vertical"
+                app:ael_duration="250"
+                >
+
+           <include
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   layout="@layout/employer_createads"
+                   />
+
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandLayout_linkvideo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ael_expanded="false"
+                app:ael_interpolator="bounce"
+                app:ael_orientation="vertical"
+                app:ael_duration="250"
+                >
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/employer_linkvideo"
+                    />
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+
+            <com.github.aakira.expandablelayout.ExpandableRelativeLayout
+                android:id="@+id/expandLayout_postjob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ael_expanded="false"
+                app:ael_interpolator="bounce"
+                app:ael_orientation="vertical"
+                app:ael_duration="250"
+                >
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    layout="@layout/employer_postjobs"
+                    />
+            </com.github.aakira.expandablelayout.ExpandableRelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

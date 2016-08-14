@@ -2,27 +2,30 @@ package com.chrs.iit.android.greg.joberfied;
 
 
 
-import android.app.Activity;
+
 import android.content.Context;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
+
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
+
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 
@@ -40,9 +43,12 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.List;
 
-import javax.security.auth.login.LoginException;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+
+
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -70,6 +76,7 @@ public class JobSeekerAttache extends Fragment implements View.OnClickListener {
     private TextView tv_personalInfoPopUp;
     private RelativeLayout rl_personalInfo;
     private PopupWindow popupWindow;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
@@ -94,6 +101,7 @@ public class JobSeekerAttache extends Fragment implements View.OnClickListener {
         tv_personalInfoPopUp.setPaintFlags(tv_personalInfoPopUp.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
         rl_personalInfo=(RelativeLayout)view.findViewById(R.id.relativeLayout_jobSeekerPersonalInfo);
         tv_personalInfoPopUp.setOnClickListener(this);
+        swipeRefreshLayout=(SwipeRefreshLayout)view.findViewById(R.id.swipe_refresh_jobseeker_list_attache);
         recyclerView=(RecyclerView)view.findViewById(R.id.recycle_view);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -103,16 +111,19 @@ public class JobSeekerAttache extends Fragment implements View.OnClickListener {
         recyclerView.setAdapter(jobSeekerAttacheAdapter);
         Log.e("MESSAGE: ","CALLING VOLLEY REQUEST");
         makeJSONRequest();
-
-
-
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                makeJSONRequest();
+            }
+        });
 
         return view;
     }
 
     public void makeJSONRequest() {
         rl_personalInfo.setVisibility(View.INVISIBLE);
-        iv_jobSeekerAttacheLoading.setVisibility(View.VISIBLE);
+      //  iv_jobSeekerAttacheLoading.setVisibility(View.VISIBLE);
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         Cache cache= requestQueue.getCache();
                //AppControllerJobSeekerAttache.getInstance().getRequest().getCache();
@@ -182,7 +193,8 @@ public class JobSeekerAttache extends Fragment implements View.OnClickListener {
                 jClass.feeds_dateCreated=jObject.getString("date_created");
                 jobSeeker_attacheClassList.add(jClass);
             }
-            iv_jobSeekerAttacheLoading.setVisibility(View.INVISIBLE);
+           // iv_jobSeekerAttacheLoading.setVisibility(View.INVISIBLE);
+            swipeRefreshLayout.setRefreshing(false);
             jobSeekerAttacheAdapter.notifyDataSetChanged();
             rl_personalInfo.setVisibility(View.VISIBLE);
 
@@ -234,21 +246,37 @@ public class JobSeekerAttache extends Fragment implements View.OnClickListener {
 
     private void PopUpPersonalInfo(View v){
             Log.e("MESSAGE: ","VIEW POP IN");
+        Locale[] locales=Locale.getAvailableLocales();
+        ArrayList<String>countries=new ArrayList<>();
+        String country;
+        for(Locale loc:locales){
+            country=loc.getDisplayCountry();
+            if(country.length()>0&&countries.contains(country)){
+                countries.add(country);
+            }
+        }
+        Collections.sort(countries,String.CASE_INSENSITIVE_ORDER);
+
            LayoutInflater layoutInflater=(LayoutInflater)getActivity().getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View inflatedView=layoutInflater.inflate(R.layout.jobseeker_popview_personal_information,null,false);
             Button btn_closePopUp;
+            Spinner spinner_country;
             Display display=getActivity().getWindowManager().getDefaultDisplay();
             final Point size=new Point();
             display.getSize(size);
             btn_closePopUp=(Button)inflatedView.findViewById(R.id.btn_closePopViewPersonalInfo);
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getContext(), R.layout.jobseeker_popview_personal_information,countries);
+            spinner_country=(Spinner)inflatedView.findViewById(R.id.spinner_popview_Country);
+            spinner_country.setPrompt("Country");
+            spinner_country.setAdapter(adapter);
             //int screenHeight=getResources().getDisplayMetrics().heightPixels;
             //int screenWidth=getResources().getDis
         // playMetrics().widthPixels;
 
-            popupWindow=new PopupWindow(inflatedView, RelativeLayout.LayoutParams.MATCH_PARENT, size.y-400);
+            popupWindow=new PopupWindow(inflatedView, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
             popupWindow.setFocusable(true);
             popupWindow.setOutsideTouchable(true);
-            popupWindow.showAtLocation(inflatedView, Gravity.BOTTOM,0,100);
+            popupWindow.showAtLocation(inflatedView, Gravity.BOTTOM,0,0);
             btn_closePopUp.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

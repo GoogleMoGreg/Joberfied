@@ -15,7 +15,6 @@
             android:theme="@style/AppTheme_NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,7 +26,6 @@
             android:theme="@style/AppTheme_NoActionBar" />
         <activity
             android:name=".JobSeekerMain"
-            android:label="@string/app_name"
             android:theme="@style/AppTheme_NoActionBarTab" />
         <activity
             android:name=".JobSeeker_Register"
@@ -37,7 +35,9 @@
             android:name=".Employer_Register"
             android:label=" "
             android:parentActivityName=".Employer" />
-        <activity android:name=".EmployerMain"></activity>
+        <activity android:name=".EmployerMain"
+                android:theme="@style/AppTheme_NoActionBarTab_Employer"
+            ></activity>
     </application>
 
 </manifest>

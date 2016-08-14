@@ -2,32 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:background="#caf2ed">
 
     <RelativeLayout
         android:id="@+id/linearLayout_popupView_PersonalInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#ef6d68"
         >
         <TextView
             android:id="@+id/tv_popupview_title_personalInfo"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Personal Infromation"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:background="#ef6d68"
+            android:layout_marginTop="5dp"
+            android:textSize="15sp"
+            android:layout_marginRight="15dp"
             />
         <Button
             android:id="@+id/btn_closePopViewPersonalInfo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CLOSE"
-            android:layout_toRightOf="@id/tv_popupview_title_personalInfo"
+            android:text="X"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/circlebutton_shape"
+            android:layout_alignParentRight="true"
 
             />
     </RelativeLayout>
@@ -39,7 +47,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#caf2ed">
+           >
     <TextView
         android:id="@+id/tv_popUpViewName"
         android:layout_width="wrap_content"
@@ -49,131 +57,388 @@
         android:layout_marginLeft="10dp"
         android:textSize="12sp"/>
 
-            <EditText
+            <RelativeLayout
+                android:id="@+id/rl_Fname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_popUpViewName"
+                android:background="#ffffff"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp"
+                >
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/et_popupView_Fname"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/tv_popUpViewName"
-                android:layout_marginLeft="5dp"
                 android:hint="First Name"
                 android:textSize="12sp"
-                android:maxLines="1"
-                android:layout_marginTop="5dp"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
+                android:paddingBottom="-7dp"
+                android:paddingLeft="5dp"
+                android:singleLine="true"
                 />
-            <EditText
+            </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_MI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/rl_Fname">
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/et_popupView_MI"
-                android:layout_width="50dp"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/et_popupView_Fname"
                 android:textSize="12sp"
                 android:hint="M.I"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
-                android:maxLines="1"
-                android:layout_marginTop="5dp"/>
-            <EditText
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
+                />
+            </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_LName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/rl_MI">
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/et_popupView_Lname"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/et_popupView_MI"
                 android:textSize="12sp"
                 android:hint="Last Name"
-                android:maxLines="1"
-                android:layout_marginTop="5dp"/>
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
+                />
+            </RelativeLayout>
             <TextView
                 android:id="@+id/tv_popupView_Address1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_popUpViewName"
                 android:text="Address Line 1:"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="12sp"
                 />
-            <EditText
+        <RelativeLayout
+            android:id="@+id/rl_Address1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/tv_popupView_Address1"
+            android:layout_below="@+id/tv_popUpViewName"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/et_popUpView_Address1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_popUpViewName"
-                android:layout_toRightOf="@+id/tv_popupView_Address1"
                 android:textSize="12sp"
                 android:hint="Select address, P.O box, company name"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="5dp"
-                android:maxLines="1"
-
+                android:singleLine="true"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
                 />
+            </RelativeLayout>
             <TextView
                 android:id="@+id/tv_popupView_Address2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_popupView_Address1"
                 android:text="Address Line 2:"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="12sp"
                 />
-            <EditText
+        <RelativeLayout
+            android:id="@+id/rl_Address2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_popupView_Address1"
+            android:layout_toRightOf="@+id/tv_popupView_Address2"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/et_popUpView_Address2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_popupView_Address1"
-                android:layout_toRightOf="@+id/tv_popupView_Address2"
                 android:textSize="12sp"
                 android:hint="Apartment, suite, unit, building floor, etc"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="5dp"
-                android:maxLines="1"
+                android:singleLine="true"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
                 />
+            </RelativeLayout>
             <TextView
                 android:id="@+id/tv_popupView_City"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_popupView_Address2"
                 android:text="City:"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="35dp"
                 android:layout_marginLeft="20dp"
                 android:textSize="12sp"
                 />
-            <EditText
+        <RelativeLayout
+            android:id="@+id/rl_City"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_popupView_Address2"
+            android:layout_toRightOf="@+id/tv_popupView_City"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="70dp"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/et_popUpView_City"
-                android:layout_width="match_parent"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_popupView_Address2"
-                android:layout_toRightOf="@+id/tv_popupView_City"
                 android:textSize="12sp"
                 android:hint="City"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="70dp"
-                android:maxLines="1"
+                android:singleLine="true"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
                 />
+            </RelativeLayout>
             <TextView
                 android:id="@+id/tv_popupView_ZipCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_popupView_City"
-                android:text="ZipCode:"
-                android:layout_marginTop="20dp"
+                android:text="Zip Code:"
+                android:layout_marginTop="35dp"
                 android:layout_marginLeft="20dp"
                 android:textSize="12sp"
                 />
-            <EditText
+        <RelativeLayout
+            android:id="@+id/rl_ZipCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_popupView_City"
+            android:layout_toRightOf="@+id/tv_popupView_ZipCode"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="80dp"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
                 android:id="@+id/et_popUpView_ZipCode"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_popupView_City"
-                android:layout_toRightOf="@+id/tv_popupView_ZipCode"
                 android:textSize="12sp"
                 android:hint="XXXX"
-                android:layout_marginTop="7dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="80dp"
-                android:maxLines="1"
+                android:singleLine="true"
                 android:maxLength="4"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
+                />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_popupView_Country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_popupView_ZipCode"
+                android:text="Country:"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="12sp"
+                />
+            <Spinner
+                android:id="@+id/spinner_popview_Country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_popupView_ZipCode"
+                android:layout_toRightOf="@id/tv_popupView_Country"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="10dp"
+                android:spinnerMode="dropdown"
+                >
+            </Spinner>
+            <TextView
+                android:id="@+id/tv_popupView_Gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_popupView_Country"
+                android:text="Gender:"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_popupView_Birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_popupView_Gender"
+                android:text="Birthday:"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="12sp"
                 />
 
 
+            <TextView
+                android:id="@+id/tv_popupView_MobileNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_popupView_Birthday"
+                android:text="Mobile Number:"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="12sp"
+                />
+        <RelativeLayout
+            android:id="@+id/rl_MobileNum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_popupView_Birthday"
+            android:layout_toRightOf="@+id/tv_popupView_MobileNum"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/et_popUpView_MobileNum_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:hint="0917"
+                android:singleLine="true"
+                android:maxLength="4"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
+                android:inputType="phone"
+                />
+            </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_MobileNum2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_popupView_Birthday"
+            android:layout_toRightOf="@id/rl_MobileNum1"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/et_popUpView_MobileNum_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:hint="XXXXXXX"
+                android:singleLine="true"
+                android:maxLength="7"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
+                android:inputType="phone"
+                />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_popupView_HomeNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_popupView_MobileNum"
+                android:text="Home Number:"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="12sp"
+                />
+        <RelativeLayout
+            android:id="@+id/rl_HomeNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_popupView_MobileNum"
+            android:layout_toRightOf="@+id/tv_popupView_HomeNum"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/et_popUpView_HomeNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:hint="639XXXX"
+                android:singleLine="true"
+                android:maxLength="7"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
+                android:inputType="phone"
+                />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_popupView_Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_popupView_HomeNum"
+                android:text="Email:"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="12sp"
+                />
+        <RelativeLayout
+            android:id="@+id/rl_Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_popupView_HomeNum"
+            android:layout_toRightOf="@+id/tv_popupView_Email"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            >
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/et_popUpView_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:hint="Email"
+                android:singleLine="true"
+                app:met_underlineColor="#f21c20"
+                app:met_primaryColor="#f21c20"
+                />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_popupView_Email"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+            <Button
+                android:id="@+id/btn_popupview_submit_personalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:background="#e15151"
+                android:textColor="#ffffff"
+                android:textAllCaps="false"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:textSize="12sp"
+
+               />
+            <Button
+                android:id="@+id/btn_popupview_reset_personalInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reset"
+                android:textColor="#ffffff"
+                android:background="#d7c3c3"
+                android:textAllCaps="false"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:textSize="12sp"
+                />
+            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
 

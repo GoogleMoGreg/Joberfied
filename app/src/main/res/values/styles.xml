@@ -17,15 +17,27 @@
         <item name="colorPrimaryDark">#34495e</item>
         <item name="colorAccent">#71e1af</item>
 
-
         <!--Material Drawer-->
         <item name="material_drawer_primary_text">@color/material_drawer_primary_dark</item>
 
+    </style>
+    <!--Base Theme Employer-->
+
+    <style name="AppTheme_NoActionBarTab_Employer" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">#333333</item>
+    <item name="colorPrimaryDark">#34495e</item>
+    <item name="colorAccent">#71e1af</item>
+
+        <!--Material Drawer-->
+        <item name="material_drawer_primary_text">@color/material_drawer_primary_dark</item>
     </style>
 
     <style name="AppTheme_NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
+
+
 
      <!-- SearchView Style -->
 
