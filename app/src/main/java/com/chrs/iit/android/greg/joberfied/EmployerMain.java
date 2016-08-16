@@ -26,7 +26,7 @@ public class EmployerMain extends AppCompatActivity {
     private int[] images={
             R.drawable.ic_action_attache_red,
             R.drawable.ic_action_message_red,
-            R.drawable.ic_action_bookmark__red,
+            R.drawable.ic_action_bookmark_red,
             R.drawable.ic_action_profile_red
     };
     Drawer drawer;
